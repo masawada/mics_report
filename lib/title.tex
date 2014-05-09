@@ -1,0 +1,25 @@
+\documentclass[10pt]{jsarticle}
+
+\makeatletter
+
+\def\@thesis{コンピュータサイエンス実験第一}
+\def\id#1{\def\@id{#1}}
+\def\department#1{\def\@department{#1}}
+
+\def\@maketitle{
+\begin{center}
+{\huge \@thesis \par}
+\vspace{10mm}
+{\LARGE\bf \@title \par}
+\vspace{10mm}
+{\Large \@date\par}
+\vspace{20mm}
+{\Large 学籍番号　\@id \par}
+\vspace{10mm}
+{\large \@author}
+\end{center}
+\par\vskip 1.5em
+}
+
+\makeatother
+
