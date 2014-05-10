@@ -1,11 +1,13 @@
 # MICS Report - Rakefile
 require 'yaml'
 
-SRC = "src"
+SRC = "tex"
 TMP = "tmp"
 OUTPUT = "output"
 CONFIG = "config"
 LIB = "lib"
+CODE = "src"
+IMAGES = "images"
 
 # init / reset project files
 task :init do
@@ -13,6 +15,8 @@ task :init do
   `mkdir #{TMP}`
   `mkdir #{OUTPUT}`
   `mkdir #{CONFIG}`
+  `mkdir #{CODE}`
+  `mkdir #{IMAGES}`
 
   `cp #{LIB}/title.yml.sample #{CONFIG}/title.yml`
 
@@ -30,6 +34,8 @@ task :reset do
   `rm -rf #{TMP}`
   `rm -rf #{OUTPUT}`
   `rm -rf #{CONFIG}`
+  `rm -rf #{CODE}`
+  `rm -rf #{IMAGES}`
 end
 
 # create new .tex file
@@ -65,6 +71,10 @@ task :make_body do
   end
 
   `#{cmd.join(" ")} > #{TMP}/body.tex` if cmd.size > 1
+  `cp #{CODE}/* #{TMP}/`
+
+  `cp #{IMAGES}/*.png #{TMP}/`
+  `cd #{TMP} && extractbb *.png`
 end
 
 task :concat do
