@@ -53,6 +53,7 @@ task :make_title do
   `echo '\\\\id{#{title['stdid']}}' >> #{TMP}/title.tex`
   `echo '\\\\begin{document}' >> #{TMP}/title.tex`
   `echo '\\\\maketitle' >> #{TMP}/title.tex`
+  `echo '\\\\clearpage' >> #{TMP}/title.tex`
 end
 
 task :make_body do
