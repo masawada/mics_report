@@ -57,6 +57,7 @@ task :make_title do
   `echo '\\\\author{#{title['name']}}' >> #{TMP}/title.tex`
   `echo '\\\\\date{\\\\today}' >> #{TMP}/title.tex`
   `echo '\\\\id{#{title['stdid']}}' >> #{TMP}/title.tex`
+  `echo '\\\\course{#{title['course']}}' >> #{TMP}/title.tex`
   `echo '\\\\begin{document}' >> #{TMP}/title.tex`
   `echo '\\\\maketitle' >> #{TMP}/title.tex`
   `echo '\\\\clearpage' >> #{TMP}/title.tex`
